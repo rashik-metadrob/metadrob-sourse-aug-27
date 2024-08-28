@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { store } from "./redux";
 import global from "./redux/global";
-
+import Hotjar from "./routes/Hotjar";
 import { persistStore } from "redux-persist";
 import {
   AppBridgeProvider,
@@ -25,6 +25,7 @@ if(global.IS_SHOPIFY){
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <PolarisProvider>
+            <Hotjar/>
             <BrowserRouter basename={process.env.REACT_APP_HOMEPAGE}>
               <AppBridgeProvider>
                 <QueryProvider>
@@ -43,6 +44,7 @@ else{
     <React.StrictMode>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
+        <Hotjar/>
           <BrowserRouter basename={process.env.REACT_APP_HOMEPAGE}>
             <App />
           </BrowserRouter>

@@ -42,7 +42,7 @@ initNodeIO();
  * shouldResize = 2: Resize to 512 but bold ratio
  */
 const uploadFile = catchAsync(async (req, res) => {
-  console.log("here 1")
+
   const { folder } = _.pick(req.query, ['folder'])
   if(req.file.path && req.file.path.substring(req.file.path.length - 4, req.file.path.length) === ".fbx"){
     let output = req.file.filename;
@@ -50,7 +50,7 @@ const uploadFile = catchAsync(async (req, res) => {
     let outputFile = req.file.path.replace(".fbx", ".glb")
     execFile(path.resolve(process.platform == 'win32' ? './external_app/FBX2glTF-windows-x64.exe' : './external_app/FBX2glTF-linux-x64'), ['--input', inputFile, '--output', outputFile], async function(err, data) {
       if(err) {
-        console.log("err", err)
+        
         fs.unlinkSync(req.file.path);
 
         res.status(httpStatus.BAD_REQUEST).send({
@@ -59,12 +59,12 @@ const uploadFile = catchAsync(async (req, res) => {
         });
       } 
       else {
-        console.log("here 1")
+       
         fs.unlinkSync(req.file.path);
         output = output.replace(".fbx", ".glb")  
 
         const isValidGlbFile = await checkGlbFileHasColliderAndFloor(folder, outputFile);
-        console.log(isValidGlbFile,'IS VALID GLB')
+        
         if(!isValidGlbFile){
           fs.unlinkSync(outputFile)
           res.status(httpStatus.BAD_REQUEST).send({
@@ -247,7 +247,7 @@ const checkGlbFileHasCameraAndSpawnPoint = async (folder, filePath) => {
     isHasCamera = cameras.length > 0 && _.some(cameras, (el) => el.name && !el.name.toLowerCase().startsWith(SPAWN_POINT_PREFIX))
  
     isHasSpawnPoint = cameras.length > 0 && _.some(cameras, (el) => el.name && !el.name.toLowerCase().startsWith(SPAWN_POINT_PREFIX))
-console.log(isHasSpawnPoint,isHasCamera,'isHasCamera')
+
   }
 
   return {

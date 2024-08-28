@@ -22,8 +22,7 @@ const createProject = async (projectBody) => {
     }
 
     let shouldCompressing = false
-    console.log(cloneBody,'cloneBody')
-    // console.log(cloneBody.type,PROJECT_TYPE.TEMPLATE,cloneBody.shouldNotCompress,'0000000000000000000000000')
+
     // if(cloneBody.type == PROJECT_TYPE.TEMPLATE && !cloneBody.shouldNotCompress){
     //     shouldCompressing = true
     // }

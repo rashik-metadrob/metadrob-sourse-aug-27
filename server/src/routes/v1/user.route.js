@@ -16,7 +16,7 @@ router.get('/get-user-shopify-cart-id', userController.getUserShopifyCartIdById)
 router.get('/check-is-shopify-active-store', userController.checkIsActiveShopifyStore)
 router.get('/get-active-plan', auth(), userController.getActivePricingPlanOfLoggedInUser)
 router.get('/get-user-ip', userController.getUserIp)//completed
-router.get('/check-is-multiple-player', userController.checkHasMultiplePlayerRole)
+router.get('/check-is-multiple-player', userController.checkHasMultiplePlayerRole)//completed
 router.get('/check-has-white-label', userController.checkHasWhiteLabel)
 router.get('/check-can-create-store', userController.checkCanCreateNewStore)
 router.get('/check-can-publish-store', userController.checkCanPublishStore)
