@@ -831,7 +831,9 @@ const getPricingPlanDetail = async (userId) => {
   ){
     let planId = activePlan[0].value ? activePlan[0].value.pricingId : "";
     if(planId){
+      console.log("HEREE")
       planDetail = await pricingPlanService.getPricingPlanById(planId);
+      console.log(planDetail,'PLLAAAAA')
     } else {
       message = MESSAGE_TEXT.NO_PRICING_PLAN_CAN_BE_FOUND
     }

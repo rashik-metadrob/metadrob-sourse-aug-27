@@ -86,6 +86,12 @@ const LayoutDashboard = ({children}) => {
     }
 
     const onClickMenu = (e) => {
+        if (window.gtag) {
+            window.gtag('event', 'navigation', {
+              event_category: 'Navigation',
+              event_label: label,
+            });
+          }
         navigate(e.key)
         if(window.innerWidth < DASHBOARD_SIDEBAR_WIDTH_BREAKPOINT){
             dispatch(setCollapsed(true))
@@ -94,6 +100,7 @@ const LayoutDashboard = ({children}) => {
 
     const onClickMenuInfo = (info) => {
         console.log("info", info)
+       
         if(info.key === "logout"){
             if(userDetail?.socialType === SOCIAL_TYPE.FACEBOOK){
                 window.FB.logout()

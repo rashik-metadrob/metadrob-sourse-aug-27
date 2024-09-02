@@ -471,13 +471,13 @@ const getActivePricingPlan = async (userId) => {
     },
     { $limit : 1 }
   ])
-
+console.log(subcriptions,'subcriptions')
   if(_.get(subcriptions, ['length'], 0) > 0){
     console.log("HERE",subcriptions)
     return subcriptions
   } else {
     const freePlans = await pricingPlanService.getPricingPlansByFields({isFree: true})
-    console.log(freePlans,'FREEEE')
+    console.log(freePlans,'FREEEE',freePlans.length,'__()*)**IU*U*&YHGYGYG')
     let freePlan = null
     const user = await User.findById(id)
 
@@ -487,6 +487,7 @@ const getActivePricingPlan = async (userId) => {
       freePlan = _.find(freePlans, {isDrobA: false})
     }
 
+    console.log(freePlan,'3333333333333333333333333')
     if(!_.isNil(_.get(freePlan, ['id']))){
       return [{
         value: {

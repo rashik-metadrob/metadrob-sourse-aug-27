@@ -428,7 +428,7 @@ const getAllThumnail = async () => {
 
 const getTotalPublishedStoreByUserId = async (userId) => {
     const projects = await Project.find({ createdBy: userId, isDeleted: {$ne: true}, mode: PROJECT_MODE.PUBLISH })
-
+console.log(projects,'00000')
     return _.get(projects, ['length'], 0)
 }
 

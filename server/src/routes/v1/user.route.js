@@ -17,15 +17,15 @@ router.get('/check-is-shopify-active-store', userController.checkIsActiveShopify
 router.get('/get-active-plan', auth(), userController.getActivePricingPlanOfLoggedInUser)
 router.get('/get-user-ip', userController.getUserIp)//completed
 router.get('/check-is-multiple-player', userController.checkHasMultiplePlayerRole)//completed
-router.get('/check-has-white-label', userController.checkHasWhiteLabel)
-router.get('/check-can-create-store', userController.checkCanCreateNewStore)
-router.get('/check-can-publish-store', userController.checkCanPublishStore)
-router.get('/check-can-create-product', userController.checkCanCreateNewProduct)
-router.get('/get-list-upload-blocks', auth(), userController.getUploadBlocks)
-router.get('/get-upload-file-limit-size', auth(), userController.getUploadLimitSize)
-router.get('/count-new-users', userController.countNewUsers)
-router.get('/get-new-users', userController.getListNewUsers)
-router.put('/update-logged-in', auth(), userController.updateLoggedInUser)
+router.get('/check-has-white-label', userController.checkHasWhiteLabel)//completed
+router.get('/check-can-create-store', userController.checkCanCreateNewStore)//complted 
+router.get('/check-can-publish-store', userController.checkCanPublishStore)//complted
+router.get('/check-can-create-product', userController.checkCanCreateNewProduct)//started
+router.get('/get-list-upload-blocks', auth(), userController.getUploadBlocks)//complted
+router.get('/get-upload-file-limit-size', auth(), userController.getUploadLimitSize)//complted
+router.get('/count-new-users', userController.countNewUsers)//complted
+router.get('/get-new-users', userController.getListNewUsers)//complted
+router.put('/update-logged-in', auth(), userController.updateLoggedInUser)//started
 router.post('/send-email', auth('sendEmail'), userController.sendEmail)
 
 router

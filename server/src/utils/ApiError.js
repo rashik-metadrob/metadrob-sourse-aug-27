@@ -4,6 +4,7 @@ class ApiError extends Error {
     this.statusCode = statusCode;
     this.isOperational = isOperational;
     if (stack) {
+      console.log(stack,"_____________________")
       this.stack = stack;
     } else {
       Error.captureStackTrace(this, this.constructor);

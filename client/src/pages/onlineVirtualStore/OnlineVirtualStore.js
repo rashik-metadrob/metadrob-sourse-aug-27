@@ -99,7 +99,7 @@ const OnlineVirtualStore = () => {
                 firstAccess.current = false;
                 setListProjects(data.results)
                 setLoading(false)
-            })
+            })  
         }, 200)
     }
 
@@ -191,6 +191,9 @@ const OnlineVirtualStore = () => {
     }
 
     const handleProjectClick = (el) => {
+        if (window.gtag) { 
+            window.gtag('event', 'select_template', { event_category: 'Templates', event_label: 'Template Selection', }); 
+        } 
         if(isStaff && requirePermissionOfStaff(PERMISSIONS.SALE_PERSON)){
             notification.warning({
                 message: CONFIG_TEXT.YOU_DONT_HAVE_PERMISSION
@@ -202,6 +205,9 @@ const OnlineVirtualStore = () => {
     }
 
     const handleTemplateClick = async (project) => {
+        if (window.gtag) { 
+            window.gtag('event', 'select_template', { event_category: 'Templates', event_label: 'Template Selection', }); 
+        } 
         if(project.isLock){
             notification.warning({message: "This is a locked template!"})
 
@@ -285,8 +291,10 @@ const OnlineVirtualStore = () => {
         delete data.updatedAt
         createNewStore(data)
     }
-
+//gtag for template analytics!
     const createNewStore = (data) => {
+        
+       
         createProject(data).then(async data => {
             if(data.id){
                 const body = {

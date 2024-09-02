@@ -55,11 +55,11 @@ const defaultRoutes = [
   },
   {
     path: "/upload",
-    route: uploadRoute
+    route: uploadRoute//not taken
   },
   {
     path: '/stripe',
-    route: stripeRoute
+    route: stripeRoute//not taken
   },
   {
     path: '/tracking',
@@ -67,7 +67,7 @@ const defaultRoutes = [
   },
   {
     path: '/feedback',
-    route: feedbackRoute
+    route: feedbackRoute//not taken
   },
   {
     path: '/config',

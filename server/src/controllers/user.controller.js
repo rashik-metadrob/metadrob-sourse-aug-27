@@ -187,6 +187,7 @@ const checkIsActiveShopifyStore = catchAsync(async (req, res) => {
 
 const checkCanCreateNewStore = catchAsync(async (req, res) => {
   const rs = await userService.getPricingPlanDetail(req.query.userId)
+
   const pricingFeatureKey = PRICING_PLAN_FEATURES_KEY.NUM_OF_STORES_DRAFT
   const feature = _.find(rs.plan.features, el => el.key === pricingFeatureKey)
   if(rs.plan
@@ -214,6 +215,7 @@ const checkCanCreateNewStore = catchAsync(async (req, res) => {
 
 const checkCanPublishStore = catchAsync(async (req, res) => {
   const rs = await userService.getPricingPlanDetail(req.query.userId)
+  console.log(rs,'rssss')
   const pricingFeatureKey = PRICING_PLAN_FEATURES_KEY.NUM_OF_STORE_CAN_PUBLISH
   const feature = _.find(rs.plan.features, el => el.key === pricingFeatureKey)
   if(rs.plan
@@ -242,6 +244,7 @@ const checkCanPublishStore = catchAsync(async (req, res) => {
 
 const checkCanCreateNewProduct = catchAsync(async (req, res) => {
   const rs = await userService.getPricingPlanDetail(req.query.userId)
+  console.log(rs,'ressss')
   const pricingFeatureKey = PRICING_PLAN_FEATURES_KEY.NUM_OF_PRODUCTS
   const feature = _.find(rs.plan.features, el => el.key === pricingFeatureKey)
   if(rs.plan
@@ -295,6 +298,7 @@ const countNewUsers = catchAsync(async (req, res) => {
 
   const thisMonthAmount = _.get(amountInfo, ['thisMonth', '0', 'amount'], 0)
   const lastMonthAmount = _.get(amountInfo, ['lastMonth', '0', 'amount'], 0)
+  console.log(thisMonthAmount,lastMonthAmount,'lastMonthAmount')
   res.send({
     thisMonth: thisMonthAmount,
     lastMonth: lastMonthAmount,

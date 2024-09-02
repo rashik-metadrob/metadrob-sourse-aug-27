@@ -4,7 +4,7 @@ module.exports = {
     https: {
       key: fs.readFileSync("../server/cert/key.pem"),
       cert: fs.readFileSync("../server/cert/cert.pem"),
-      // ca: fs.readFileSync("C:/Users/User/AppData/Local/mkcert/rootCA.pem"),
+      //ca: fs.readFileSync("C:/Users/User/AppData/Local/mkcert/rootCA.pem"),
     },
     client: {
       // webSocketURL: "wss://localhost:8080/ws",
